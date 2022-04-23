@@ -1,0 +1,37 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "learn React",
+      "description": "learn React from scratch",
+      "price": 30
+    },
+    {
+      "id": 2,
+      "title": "learn JS",
+      "description": "learn JS from scratch",
+      "price": 40
+    },
+    {
+      "title": "learn php",
+      "price": 500,
+      "description": "learn php",
+      "userName": "ahmed radi",
+      "id": 3
+    },
+    {
+      "title": "learn c",
+      "price": 5000,
+      "description": "learn c",
+      "userName": "ahmed radi",
+      "id": 4
+    },
+    {
+      "title": "learn Angular",
+      "price": 50000,
+      "description": "learn Angular",
+      "userName": "ahmed radi",
+      "id": 5
+    }
+  ]
+}
