@@ -50,26 +50,26 @@ export const deleteBooks = createAsyncThunk('book/deleteBooks', async (item, thu
     }
 })
 
-export const getBook = createAsyncThunk('book/getBook', async (item, thunkAPI) => {
-    const { rejectWithValue } = thunkAPI
-    try {
-        await fetch(`http://localhost:3005/books/${item.id}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json; charset=UTF-8',
-            },
-        });
-        return item;
-    } catch (error) {
-        return rejectWithValue(error.message)
-    }
-})
+// export const getBook = createAsyncThunk('book/getBook', async (item, thunkAPI) => {
+//     const { rejectWithValue } = thunkAPI
+//     try {
+//         await fetch(`http://localhost:3005/books/${item.id}`, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json; charset=UTF-8',
+//             },
+//         });
+//         return item;
+//     } catch (error) {
+//         return rejectWithValue(error.message)
+//     }
+// })
 
 const bookSlice = createSlice({
     name: 'book',
     initialState,
     extraReducers: {
-        //GET Books
+        // GET Books
         [getBooks.pending]: (state, action) => {
             state.isLoading = true
             state.error = null
@@ -82,7 +82,7 @@ const bookSlice = createSlice({
             state.error = action.payload
             state.isLoading = false
         },
-        //INSERT Book
+        // INSERT Book
         [insertBooks.pending]: (state, action) =>  {
             state.isLoading = true
             state.error = null
@@ -108,20 +108,19 @@ const bookSlice = createSlice({
             state.isLoading = false
             state.error = action.payload
         },
-        //GET Book
-        [getBook.pending]: (state, action) => {
-            state.isLoading = false
-            state.error = action.payload
-        },
-        [getBook.fulfilled]: (state, action) => {
-            state.isLoading = false;
-            state.bookInfo = action.payload;
-            // console.log(action.payload)
-        },
-        [getBook.rejected]: (state, action) => {
-            state.isLoading = false
-            state.error = action.payload
-        },
+        // GET Book
+        // [getBook.pending]: (state, action) => {
+        //     state.isLoading = false
+        //     state.error = action.payload
+        // },
+        // [getBook.fulfilled]: (state, action) => {
+        //     state.isLoading = false;
+        //     state.bookInfo = action.payload;
+        // },
+        // [getBook.rejected]: (state, action) => {
+        //     state.isLoading = false
+        //     state.error = action.payload
+        // },
     },
 })
 

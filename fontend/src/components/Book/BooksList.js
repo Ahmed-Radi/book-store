@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-const BooksList = ({ books, isLoading, isLoggedIn, deleteBooks, getBook }) => {
+const BooksList = ({ books, isLoading, isLoggedIn, deleteBooks, getBook, getBookId }) => {
 
     const dispatch = useDispatch()
     const bookList = books &&  books.length > 0 ?  books && books?.map(item => (
@@ -9,20 +9,13 @@ const BooksList = ({ books, isLoading, isLoggedIn, deleteBooks, getBook }) => {
                 <div>{item.title}</div>
                 <div className='btn-group' role='group'>
                     <button type='button' className='btn btn-primary'
-                        onClick={() => dispatch(getBook(item)).unwrap()
-                            .then((originalPromiseResult) => {
-                                // console.log(originalPromiseResult)
-                            })
-                            .catch((rejectedValueOrSerializedError) => {
-                                // console.log(rejectedValueOrSerializedError)
-                            })}
-                    >
+                        onClick={() => getBookId(item.id)}>
                         Read
                     </button>
                     {isLoggedIn ? <button type='button' className='btn btn-danger'
                         onClick={() => dispatch(deleteBooks(item)).unwrap()
                             .then((originalPromiseResult) => {
-                                console.log(originalPromiseResult)
+                                // console.log(originalPromiseResult) // info fore deleted book
                             })
                             .catch((rejectedValueOrSerializedError) => {
                                 console.log(rejectedValueOrSerializedError)
